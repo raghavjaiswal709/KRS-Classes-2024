@@ -10,14 +10,22 @@ dotenv.config();
 connectDB();
 
 app.use(express.json());
+// app.use(cors({
+//     origin: [
+//         "https://krs-classes-2024-client.vercel.app",
+//         "https://krs-classes-2024-client-59jtk0cr0-raghav-jaiswals-projects.vercel.app"
+//     ],
+//     methods: ["POST", "GET", "PATCH", "DELETE"],
+//     credentials: true
+// }));
+
 app.use(cors({
-    origin: [
-        "https://krs-classes-2024-client.vercel.app",
-        "https://krs-classes-2024-client-59jtk0cr0-raghav-jaiswals-projects.vercel.app"
-    ],
+    origin: "*", // Allows requests from any origin
     methods: ["POST", "GET", "PATCH", "DELETE"],
     credentials: true
 }));
+
+
 
 app.options('*', cors()); // Handle preflight requests
 
